@@ -51,7 +51,7 @@ def add_product():
 def get_products():
     all_products = Product.query.all()
     result = products_schema.dump(all_products)
-    return jsonify(result.data)
+    return jsonify(result)
 
 
 # Endpoint for querying a single product
@@ -61,7 +61,7 @@ def get_product(id):
     return product_schema.jsonify(product)
 
 
-# Endpoint for updating a guide
+# Endpoint for updating a product
 @app.route("/product/<id>", methods=["PUT"])
 def product_update(id):
     product = Product.query.get(id)
